@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
+  <a class="navbar-brand" id="brand">Angular Activité 2</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+          aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto">
+      <li routerLinkActive="active" class="nav-link">
+        <a class="nav-link" routerLink="posts">Liste des posts</a>
+      </li>
+      <li routerLinkActive="active" class="nav-link">
+        <a class="nav-link" routerLink="posts/new">Créer un post</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav">
+      <li routerLinkActive="active" class="nav-link" *ngIf="!isAuth">
+        <a class="nav-link" routerLink="auth/signup">Créer un compte</a>
+      </li>
+      <li routerLinkActive="active" class="nav-link" *ngIf="!isAuth">
+        <a class="nav-link" routerLink="auth/signin">Se connecter</a>
+      </li>
+      <li class="nav-link">
+        <a (click)="onSignOut()" *ngIf="isAuth" class="nav-link" style="color: black; cursor:pointer">Déconnexion</a>
+      </li>
+    </ul>
+  </div>
+</nav>

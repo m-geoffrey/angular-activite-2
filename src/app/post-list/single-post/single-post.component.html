@@ -1,0 +1,11 @@
+<div class="container-fluid">
+  <div class="col-xs-12">
+    <div class="row justify-content-between">
+      <h3 class="mr-auto">{{ post.title }}</h3>
+        <small id="date">{{ post.date | date: 'dd/MM/yyyy HH:mm' | lowercase }}</small>
+    </div>
+    <p>{{ post.content }}</p>
+    <p>Crée par : {{ post.poster }}</p>
+    <button class="btn btn-primary" (click)="onBack()">Liste des posts</button>
+  </div>
+</div>

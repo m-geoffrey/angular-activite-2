@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <div class="col-xs-12">
+    <span class="row mb-4"> <h2 class="mr-auto">Les posts</h2> <button class="btn btn-outline-dark" (click)="onNewPost()">Nouveau post</button>
+    </span>
+      <div class="list-group mt-1">
+        <button class="list-group-item mt-1"
+            *ngFor="let post of posts; let i = index"
+            (click)="onViewPost(i)"
+            [ngClass]="{'list-group-item': true,
+            'list-group-item-success': post.loveValue > 0,
+            'list-group-item-danger': post.loveValue < 0
+              }">
+          <div class="row justify-content-between">
+            <h3 class="col-8 mb-3 mr-auto">{{ post.title }}</h3>
+            <small id="date" class="col-4">{{ post.date | date: 'dd/MM/yyyy HH:mm' | lowercase }}</small>
+          </div>
+              <p class="content text-justify mb-2"> {{ post.content }}</p>
+              <p class="poster mt-3">Crée par : {{ post.poster }}</p>
+            <div class="btn-toolbar">
+              <button class="btn btn-success" (click)=onLoveIt(post)>Love it !</button>
+              <button class="btn btn-danger mr-auto" (click)="onDontLoveIt(post)">I don't like it ..</button>
+              <button class="btn btn-primary" (click)="onDeletePost(post)">Supprimer</button>
+            </div>
+        </button>
+      </div>
+    </div>
+</div>
